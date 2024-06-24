@@ -1,38 +1,283 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
+}
+.box_chat{
+    display: none;
+}
+.box_Chat{
+    width: 80%;
+    height: 75vh;
+    background-color: rgba(6, 8, 8, 0.846);
+    border-radius: 25px;
+    padding: 1rem;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+.chat_contact_img{
+    width: 50px;
+    height: 50px;
+}
+.outer_con{
+    margin: 1rem;
+    position: relative;
+    height: 75vh;
+    .selected{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+.chat_contact{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    cursor: pointer;
+    font-size: 20px;
+    padding: .5rem 1rem;
+    border-radius: 25px;
+    overflow-y: scroll;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    /* &::-webkit-scrollbar{
+        width: 0.2rem;
+
+    } */
+}
+.img_ava{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.myProfile{
+    z-index: 999;
+    border-top:  2px solid rgba(178, 118, 6, 0.942);
+    display: flex;
+    position: absolute;
+    bottom: 0rem;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 20px;
+    padding: .5rem 1rem;
+}
+.mp{
+    margin: 0;
+    padding:0;
+}
+.chat_divider{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: 2px;
+}
+.chat_contacts{
+    margin-right: 1rem;
+    margin-top: -1rem;
+    position: relative;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.chat_body{
+    height: 65vh;
+  
+    .message{
+        gap: 1rem;
+        font-size: 16px;
+        padding: 0 .5rem;
+        /* margin: 1rem; */
+    }
+    .chatBox{
+        height: 55vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .messgeType{
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: auto;
+    }
+    .chat_input{
+        font-size: 18px;
+        width: auto;
+        padding: 1rem;
+        height: 4vh;
+        width: 95%;
+        border-radius: 15px;
+        background-color: #000;
+        color: #fff;
+    }
+    .chat_butn{
+        z-index: 99;
+        position: absolute;
+        bottom: 0;
+        font-size: 18px;
+        right: 15px;
+        height: 8vh;
+        width: 80px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: green;
+        &:hover{
+           color: #0b9304;
+           font-weight: 700;
+        }
+    }
+    .message_bos{
+        width: 100%;
+    }
+    .sended{
+        display: flex;
+        align-items: right;
+        flex-direction: column;
+       justify-content: flex-start;
+       text-align: left;
+       width: 100%;
+    }
+    .recieved{
+        display: flex;
+        align-items:left;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-align: right;
+         width: 100%;
+    }
+    .message_sendandrecieve{
+        margin: 10px;
+        padding: 0;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: fit-content;
+        padding: 10px;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.chat_header_left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 20px;
+ 
+}
+.name_h{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.box_login{
+    width: 90%;
+    max-width: 500px;
+    height: fit-content;
+    background-color: rgba(6, 8, 8, 0.846);
+    border-radius: 25px;
+    padding: 1rem;
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.loginForm{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: column;
+    gap: 1rem;
+    input{
+        padding: 1rem 0rem;
+        font-size: 16px;
+        background: transparent;
+        color: #fff;
+        border:  2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        width: 100%;
+        &:focus{
+            border :2px solid rgba(82, 64, 183, 0.5) ;
+            outline: none;
+        }
+    }
+    .forgotPassword{
+        text-align: right;
+        width: 100%;
+        cursor: pointer;
+    }
+    .button{
+        padding: 1rem;
+        height: 54px;
+        font-size: 16px;
+        background: rgba(82, 64, 183, 0.5);
+        color: #fff;
+        border:  2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.5ms ease-in-out;
+        &:hover{
+            border :2px solid rgba(82, 64, 183, 0.5) ;
+            background: rgba(82, 64, 183);
+            outline: none;
+        }
+    }
+    .error{
+       background-color: #e67676;
+       color: #930404;
+       width: 100%;
+       text-align: center;
+       padding-top: 1rem ;
+       padding-bottom: 1rem ;
+       border: none ;
+       border-radius: 5px;
+
+    }
+    .success{
+       background-color: #7ae676;
+       color: #0b9304;
+       width: 100%;
+       text-align: center;
+       padding-top: 1rem ;
+       padding-bottom: 1rem ;
+       border: none ;
+       border-radius: 5px;
+
+    }
+
+}
+
+
+.welcome_container{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 60vh ;
+    flex-direction: column;
+
+
+}
+
+@media screen and (max-width:800px) {
+    .box_Chat{
+        display: none;
+    }
+    .box_chat{
+        display: block;
+    }
 }
